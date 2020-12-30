@@ -1,0 +1,228 @@
+<html>
+
+<head>
+    <!--    &lt;!&ndash;Import Google Icon Font&ndash;&gt;-->
+    <!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <!--    &lt;!&ndash;Import materialize.css&ndash;&gt;-->
+    <!--    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>-->
+
+    <!--    &lt;!&ndash;Let browser know website is optimized for mobile&ndash;&gt;-->
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Mod1</title>
+    <style>
+                img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                    }
+
+                    /* CSS comes here */
+    #video {
+        border: 1px solid black;
+        width: 320px;
+        height: 240px;
+    }
+
+    #photo {
+        border: 1px solid black;
+        width: 320px;
+        height: 240px;
+    }
+
+    #canvas {
+        display: none;
+    }
+
+    .camera {
+        width: 340px;
+        display: inline-block;
+    }
+
+    .output {
+        width: 340px;
+        display: inline-block;
+    }
+
+    #startbutton {
+        display: block;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 36px;
+        padding: 5px;
+        background-color: #6a67ce;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 1.0);
+        cursor: pointer;
+    }
+
+    .contentarea {
+        font-size: 16px;
+        font-family: Arial;
+        text-align: center;
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="row container">
+    <div class="col s12">
+        <h3 align="center">Video Streaming Demonistration</h>
+    </div>
+    <div class="col s6">
+        <img id="bg" class="center" src="{{ url_for('video_feed') }}">
+
+    </div>
+
+    <div class="col s6">
+        <div class="row">
+            <form class="col s12" id="form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="shirt-size" type="text">
+                        <label for="shirt-size">Shirt Size</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="Regular_Type">
+                            <option value="" disabled selected>Select Your Regular Type</option>
+                            <option value="1">Slim Fit</option>
+                            <option value="2">Formal</option>
+                            <option value="3">Long</option>
+                        </select>
+                        <label>Shirt Regular Type</label>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="Shirt_Colours">
+                            <option value="" disabled selected>Select Your Color</option>
+                            <option value="1">Blue</option>
+                            <option value="2">Pink</option>
+                            <option value="3">Whyte</option>
+                        </select>
+                        <label>Shirt Colours</label>
+                    </div>
+                </div>
+                <button class="waves-effect waves-light btn-small" id="select">Selection</button>
+                <!--                <button type="button" class="waves-effect waves-light btn-small"-->
+                <!--                        onclick="window.location.href='{{ url_for( 'selection') }}'">Selection-->
+                <!--                </button>-->
+
+                <div id="btns-div">
+                    <a href="{{ url_for('capture') }}">
+                        <img src="{{ url_for('static',filename='picture.png') }}" alt="take picture" class="btn">
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!--<img src="{{ url_for('static',filename='0001.jpg') }}">-->
+<!--<img class="materialboxed" width="100" src='static/Style/0018.jpg'>-->
+<div class="container cart-items">
+    <!--    <div class="carousel">-->
+    <!--                <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>-->
+    <!--                <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>-->
+    <!--                <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>-->
+    <!--                <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>-->
+    <!--                <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>-->
+    <!--    </div>-->
+</div>
+
+<!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+         var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+        });
+
+         var elems = document.querySelectorAll('.carousel');
+            M.Carousel.init(elems);
+
+
+
+
+                const transactionForm = document.querySelector('#form');
+                transactionForm.addEventListener('submit', (e) => {
+
+                e.preventDefault();
+                const shirtSize = transactionForm['shirt-size'].value;
+                const regularType = transactionForm['Regular_Type'].value;
+                const shirtColours = transactionForm['Shirt_Colours'].value;
+
+
+                if ((shirtSize==2)&&(regularType==1)&&(shirtColours==1)) {carouselDisplay()}
+                else if((shirtSize==1)&&(regularType==2)&&(shirtColours==2)){carouselDisplay1()}
+
+                console.log(`${shirtSize} and ${regularType} and ${shirtColours}`);
+
+                });
+
+
+            function carouselDisplay() {
+            const cartInfoTrigger = document.querySelector('.cart-items');
+            const htmlCartInfo = `
+            <ul>
+                <li><img class="materialboxed" width="100" src="/static/Style/0018.jpg"></li>
+                <img style='border:5px solid red' src="{{url_for('static', filename='0018.jpg')}}" />
+                <li><img style='border:5px solid blue' class="materialboxed" width="100" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/11786/114756/2018-Printed-Men-Long-Sleeve-Casual-Men-s-Shirts-Summer-Autumn-Spring-Male-Dress-Shirts-Cool__30274.1537168134.jpg?c=2?imbypass=on"></li>
+                <li><img src="/static/Style/0012.jpg" alt="Related Book 2" width="20%" height="auto"></li>
+                <li><img class="materialboxed" width="100" src="https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?format=auto&f=800x800"></li>
+
+
+<!--            <li><img class="materialboxed" width="100" src="{{ url_for( 'selection') }}"></li>-->
+<!--            <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>-->
+            </ul>
+            `;
+            console.log("*********************************1");
+            cartInfoTrigger.innerHTML = htmlCartInfo;
+            }
+
+        function carouselDisplay1() {
+            const cartInfoTrigger = document.querySelector('.cart-items');
+            const htmlCartInfo = `
+            <ul>
+                <li><img class="materialboxed" width="100" src="static/Style/0018.jpg"></li>
+                <li><img class="materialboxed" width="100" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/11786/114756/2018-Printed-Men-Long-Sleeve-Casual-Men-s-Shirts-Summer-Autumn-Spring-Male-Dress-Shirts-Cool__30274.1537168134.jpg?c=2?imbypass=on"></li>
+                <li><img class="materialboxed" width="100" src="https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?format=auto&f=800x800"></li>
+                <li><img class="materialboxed" width="100" src="https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?format=auto&f=800x800"></li>
+                <li><img class="materialboxed" width="100" src="Style/0013.jpg"></li>
+            </ul>
+            `;
+            console.log("*********************************1");
+            cartInfoTrigger.innerHTML = htmlCartInfo;
+            }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+</html>

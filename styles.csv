@@ -1,0 +1,45 @@
+id,Size,Regular Type,Colour
+1,XL,Formal,Willis Blue
+2,Meadiam,Formal,white
+3,XL,Casuales,white
+4,Large,Formal,Blue
+5,Meadiam,Formal,Pink
+6,Meadiam,Short Sleeve,White 
+7,Large,Casual Slim Fit,Black
+8,XL,Long Sleeve Slim Fit ,Red
+9,Meadiam,Double Collar Slim Fit,Royal Blue
+10,Meadiam, Slim Fit,Yellow
+11,XXL , Slim Fit,Gray
+12,XXL ,Formal,Light Blue
+13,XL,Formal ,Blue
+14,Meadiam, Slim Fit,Pink 
+15,Meadiam,Dress Shirt,white
+16,Meadiam, Slim Fit,Light Blue
+17,XL,Long Sleeve,Dark Blue
+18,Meadiam,Formal,Light Blue
+19,Meadiam,Formal,Blue & White Striped Shirt
+20,XXL ,Casual Button down,Dark Blue & Green
+21,XL,Flannel Shirt,Blue
+22,XXL ,Plaid Flannel,Dark Green
+23,Meadiam, Slim Fit,dark blue
+24,Meadiam,Cotton-Tencel,Orange
+25,XL ,Plaid Checked Brushed Flannel,Red_black 
+26,Meadiam, Slim Fit,Light Blue
+27,Meadiam, Slim Fit,Blue
+28,XL, Slim Fit,white 
+29,XL,Casuales,Black
+30,XL,French Cuff Dress Shirt,dark blue
+,,,
+,,,
+,,,
+,,,Gray=2
+,XL=1, Slim Fit=1,White=1
+,XXL=2,Formal=2,Pink =3
+,Meadiam=3,Short Sleeve=3,Yellow=4
+,Large=4,Long Sleeve=4,Orange=5
+,,Flannel =5,Light Blue=6
+,,Dress Shirt=6,Blue=7
+,,Casuales=7,Dark Blue=8
+,,,Red=9
+,,,Green=10
+,,,Black=11
