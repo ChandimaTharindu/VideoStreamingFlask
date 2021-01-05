@@ -73,14 +73,13 @@
 
 
 
-
     </style>
 </head>
 <body>
 
 <div class="row container">
     <div class="col s12">
-        <h3 align="center">Video Streaming Demonistration</h>
+        <h3 align="center">Cloths selection system</h>
     </div>
     <div class="col s6">
         <img id="bg" class="center" src="{{ url_for('video_feed') }}">
@@ -92,8 +91,16 @@
             <form class="col s12" id="form">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="shirt-size" type="text">
-                        <label for="shirt-size">Shirt Size</label>
+                        <select id="shirt-size">
+                            <option value="" disabled selected>Select Your Shirt Size</option>
+                            <option value="1">XL</option>
+                            <option value="2">XXL</option>
+                            <option value="3">Medium</option>
+                            <option value="4">Large</option>
+                            <option value="5">Small</option>
+                        </select>
+                        <label>Shirt Regular Type</label>
+
                     </div>
                 </div>
                 <div class="row">
@@ -103,6 +110,7 @@
                             <option value="1">Slim Fit</option>
                             <option value="2">Formal</option>
                             <option value="3">Long</option>
+                            <option value="4">Casuales</option>
                         </select>
                         <label>Shirt Regular Type</label>
 
@@ -112,9 +120,9 @@
                     <div class="input-field col s12">
                         <select id="Shirt_Colours">
                             <option value="" disabled selected>Select Your Color</option>
-                            <option value="1">Blue</option>
-                            <option value="2">Pink</option>
-                            <option value="3">Whyte</option>
+                            <option value="1">White</option>
+                            <option value="2">Blue</option>
+                            <option value="3">Pink</option>
                         </select>
                         <label>Shirt Colours</label>
                     </div>
@@ -124,11 +132,23 @@
                 <!--                        onclick="window.location.href='{{ url_for( 'selection') }}'">Selection-->
                 <!--                </button>-->
 
-                <div id="btns-div">
-                    <a href="{{ url_for('capture') }}">
-                        <img src="{{ url_for('static',filename='picture.png') }}" alt="take picture" class="btn">
-                    </a>
+<!--                <div id="btns-div">-->
+<!--                    <a href="{{ url_for('capture') }}">-->
+<!--                        <img src="{{ url_for('static',filename='picture.png') }}" alt="take picture" class="btn">-->
+<!--                    </a>-->
+<!--                </div>-->
+
+                <div>
+                    <h5 align="center">Size Chart</h5>
+                    <h6 align="center">S 42cm</h6>
+                <h6 align="center">M 44cm</h6>
+                <h6 align="center">L 46cm</h6>
+                <h6 align="center">XL 50cm</h6>
                 </div>
+
+
+
+
 
             </form>
         </div>
@@ -159,8 +179,6 @@
             M.Carousel.init(elems);
 
 
-
-
                 const transactionForm = document.querySelector('#form');
                 transactionForm.addEventListener('submit', (e) => {
 
@@ -170,8 +188,15 @@
                 const shirtColours = transactionForm['Shirt_Colours'].value;
 
 
-                if ((shirtSize==2)&&(regularType==1)&&(shirtColours==1)) {carouselDisplay()}
-                else if((shirtSize==1)&&(regularType==2)&&(shirtColours==2)){carouselDisplay1()}
+                if ((shirtSize==1)&&(regularType==2)&&(shirtColours==2)) {carouselDisplay()}
+                else if((shirtSize==3)&&(regularType==1)&&(shirtColours==1)){carouselDisplay1()}
+<!--                else if((shirtSize==3)&&(regularType==1)&&(shirtColours==1)){carouselDisplay2()}-->
+                else if((shirtSize==3)&&(regularType==4)&&(shirtColours==1)){carouselDisplay3()}
+                else if((shirtSize==3)&&(regularType==1)&&(shirtColours==3)){carouselDisplay4()}
+                else if ((shirtSize==1)&&(regularType==1)&&(shirtColours==1)) {carouselDisplay5()}
+                else if ((shirtSize==3)&&(regularType==2)&&(shirtColours==2)) {carouselDisplay6()}
+
+
 
                 console.log(`${shirtSize} and ${regularType} and ${shirtColours}`);
 
@@ -183,14 +208,16 @@
             const htmlCartInfo = `
             <ul>
                 <li><img class="materialboxed" width="100" src="/static/Style/0018.jpg"></li>
-                <img style='border:5px solid red' src="{{url_for('static', filename='0018.jpg')}}" />
-                <li><img style='border:5px solid blue' class="materialboxed" width="100" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/11786/114756/2018-Printed-Men-Long-Sleeve-Casual-Men-s-Shirts-Summer-Autumn-Spring-Male-Dress-Shirts-Cool__30274.1537168134.jpg?c=2?imbypass=on"></li>
-                <li><img src="/static/Style/0012.jpg" alt="Related Book 2" width="20%" height="auto"></li>
-                <li><img class="materialboxed" width="100" src="https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?format=auto&f=800x800"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0001.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0013.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0027.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0012.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0019.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0009.jpg"></li>
 
 
-<!--            <li><img class="materialboxed" width="100" src="{{ url_for( 'selection') }}"></li>-->
-<!--            <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>-->
+            <li><img class="materialboxed" width="100" src="{{ url_for( 'selection') }}"></li>
+            <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>
             </ul>
             `;
             console.log("*********************************1");
@@ -201,23 +228,95 @@
             const cartInfoTrigger = document.querySelector('.cart-items');
             const htmlCartInfo = `
             <ul>
-                <li><img class="materialboxed" width="100" src="static/Style/0018.jpg"></li>
-                <li><img class="materialboxed" width="100" src="https://cdn11.bigcommerce.com/s-pkla4xn3/images/stencil/1280x1280/products/11786/114756/2018-Printed-Men-Long-Sleeve-Casual-Men-s-Shirts-Summer-Autumn-Spring-Male-Dress-Shirts-Cool__30274.1537168134.jpg?c=2?imbypass=on"></li>
-                <li><img class="materialboxed" width="100" src="https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?format=auto&f=800x800"></li>
-                <li><img class="materialboxed" width="100" src="https://contents.mediadecathlon.com/p1484240/k$ab565f3675dbdd7e3c486175e2c16583/men-s-trekking-shirt-travel-100-warm-maroon.jpg?format=auto&f=800x800"></li>
-                <li><img class="materialboxed" width="100" src="Style/0013.jpg"></li>
+                 <li><img class="materialboxed" width="100" src="/static/Style/0011.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0002.jpg"></li>
+            </ul>
+                        <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>
             </ul>
             `;
             console.log("*********************************1");
             cartInfoTrigger.innerHTML = htmlCartInfo;
             }
 
+                    function carouselDisplay2() {
+            const cartInfoTrigger = document.querySelector('.cart-items');
+            const htmlCartInfo = `
+            <ul>
+                 <li><img class="materialboxed" width="100" src="/static/Style/0011.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0002.jpg"></li>
+            </ul>
+                        <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>
+            </ul>
+            `;
+            console.log("*********************************1");
+            cartInfoTrigger.innerHTML = htmlCartInfo;
+            }
+
+                                function carouselDisplay3() {
+            const cartInfoTrigger = document.querySelector('.cart-items');
+            const htmlCartInfo = `
+            <ul>
+                 <li><img class="materialboxed" width="100" src="/static/Style/0015.jpg"></li>
+
+            </ul>
+                        <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>
+            </ul>
+            `;
+            console.log("*********************************1");
+            cartInfoTrigger.innerHTML = htmlCartInfo;
+            }
+
+                                            function carouselDisplay4() {
+            const cartInfoTrigger = document.querySelector('.cart-items');
+            const htmlCartInfo = `
+            <ul>
+                 <li><img class="materialboxed" width="100" src="/static/Style/0011.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0010.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0014.jpg"></li>
+            </ul>
+                        <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>
+            </ul>
+            `;
+            console.log("*********************************1");
+            cartInfoTrigger.innerHTML = htmlCartInfo;
+            }
+
+                                          function carouselDisplay5() {
+            const cartInfoTrigger = document.querySelector('.cart-items');
+            const htmlCartInfo = `
+            <ul>
+                 <li><img class="materialboxed" width="100" src="/static/Style/0011.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0028.jpg"></li>
+            </ul>
+                        <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>
+            </ul>
+            `;
+            console.log("*********************************1");
+            cartInfoTrigger.innerHTML = htmlCartInfo;
+            }
+
+                        function carouselDisplay6() {
+            const cartInfoTrigger = document.querySelector('.cart-items');
+            const htmlCartInfo = `
+            <ul>
+                <li><img class="materialboxed" width="100" src="/static/Style/0018.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0026.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0012.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0027.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0004.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0023.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0009.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0019.jpg"></li>
+                <li><img class="materialboxed" width="100" src="/static/Style/0016.jpg"></li>
 
 
-
-
-
-
+            <li><img class="materialboxed" width="100" src="{{ url_for( 'selection') }}"></li>
+            <li> <img id="bg" class="center" src="{{ url_for('selection') }}"></li>
+            </ul>
+            `;
+            console.log("*********************************1");
+            cartInfoTrigger.innerHTML = htmlCartInfo;
+            }
 
 
 </script>

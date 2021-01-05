@@ -92,7 +92,7 @@ import os
 
 df = pd.read_csv('Mens_Shirt.csv')
 
-DATADIR = r"Style/"
+DATADIR = r"static/Style/"
 MIN_DISTANCE = 1.5
 
 df['vector'] = np.array(df[['Size', 'Regular Type', 'Colour']]).tolist()

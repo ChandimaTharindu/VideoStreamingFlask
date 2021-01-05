@@ -34,8 +34,8 @@ class VideoCamera(object):
         for i in range(0, rows):
             for j in range(0, cols):
                 h = hsv_channels[0][i][j]
-                if h > 90 and h < 255:
-                    hsv_channels[2][i][j] = 255
+                if h > 0 and h < 255:
+                    hsv_channels[2][i][j] = 250
                 else:
                     hsv_channels[2][i][j] = 0
 

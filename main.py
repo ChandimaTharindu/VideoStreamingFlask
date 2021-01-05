@@ -53,7 +53,7 @@ def selection():
     print("*****Start Shirt Selection****************")
     df = pd.read_csv('Mens_Shirt.csv')
 
-    DATADIR = r"Style/"
+    DATADIR = r"static/Style/"
     MIN_DISTANCE = 1.5
 
     df['vector'] = np.array(df[['Size', 'Regular Type', 'Colour']]).tolist()
@@ -61,7 +61,7 @@ def selection():
 
     # input = 2, 2, 7
     # in_vect = input().split(',')
-    in_vect = [2, 2, 7]
+    in_vect = [3, 2, 7]
     user_input = np.array(list(map(lambda x: int(x), in_vect)))
     print(user_input)
 
@@ -88,7 +88,7 @@ def selection():
     # print("encoded_imges is : " + encoded_imges)
 
     cv2.waitKey(0)
-    return jsonify(images)
+    return jsonify(img)
 
     # return Response(response=img, content_type='image/jpeg')
     # return render_template('image.html', user_image=img)
@@ -177,5 +177,5 @@ def getImages():
 
 
 if __name__ == "__main__":
-    app.run(port=4555, debug=True)
-    # app.run(port=0000, debug=True)
+    # app.run(port=4555, debug=True)
+    app.run(port=0000, debug=True)
