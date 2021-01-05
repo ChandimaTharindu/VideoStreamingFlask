@@ -52,7 +52,6 @@ def video_feed():
 def selection():
     print("*****Start Shirt Selection****************")
     df = pd.read_csv('Mens_Shirt.csv')
-
     DATADIR = r"static/Style/"
     MIN_DISTANCE = 1.5
 
